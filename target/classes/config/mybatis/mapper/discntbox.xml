@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="discntbox">
+
+	<select id="findDiscntSeq" parameterType="int" resultType="discntbox">
+	
+	select * from DISCNTBOX where DISCNTBOX_PRODUCT =#{productSeq}
+	
+	</select>
+	
+	<insert id="insertDiscntBox" parameterType="discntbox">
+	
+	Insert into DISCNTBOX (DISCNTBOX_SEQ,DISCNTBOX_PRODUCT,DISCNT1,DISCNT2,DISCNT3,DISCNT4,DISCNT5) 
+	values (DISCNTBOX_SEQ.nextval,#{discntBoxProduct},#{discnt1},#{discnt2},#{discnt3},#{discnt4},#{discnt5})
+	
+	</insert>
+
+
+
+</mapper>

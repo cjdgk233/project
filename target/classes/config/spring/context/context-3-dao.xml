@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- DAO 생성자 인젝션 방식 객체 생성 -->
+
+
+
+	<bean id="memberDao" class="com.ex.member.MemberDAO">
+		<constructor-arg ref="sqlSession" />
+	</bean>
+
+	<bean id="productDao" class="com.ex.product.ProductDAO">
+		<constructor-arg ref="sqlSession" />
+
+	</bean>
+
+	<bean id="pdtypeDao" class="com.ex.pdType.PdTypeDAO">
+
+		<constructor-arg ref="sqlSession" />
+	</bean>
+
+	<bean id="seatRateDao" class="com.ex.seatrate.SeatRateDAO">
+
+		<constructor-arg ref="sqlSession" />
+	</bean>
+
+	<bean id="roundDao" class="com.ex.round.RoundDAO">
+		<constructor-arg ref="sqlSession" />
+	</bean>
+
+	<bean id="seatDao" class="com.ex.seat.SeatDAO">
+		<constructor-arg ref="sqlSession" />
+	</bean>
+
+	<bean id="bookDao" class="com.ex.book.BookDAO">
+		<constructor-arg ref="sqlSession" />
+	</bean>
+
+
+	<bean id="hallDAO" class="com.ex.hall.HallDAO">
+		<constructor-arg ref="sqlSession" />
+	</bean>
+
+	<bean id="discntBoxDao" class="com.ex.discntbox.DiscntBoxDAO">
+
+		<constructor-arg ref="sqlSession" />
+	</bean>
+
+	<bean id="discntDao" class="com.ex.discnt.DiscntDAO">
+
+		<constructor-arg ref="sqlSession" />
+	</bean>
+	
+	
+	<bean id="theaterDao" class="com.ex.theater.TheaterDAO">
+
+		<constructor-arg ref="sqlSession" />
+	</bean>
+
+<bean id="priceBoxDao" class="com.ex.pricebox.PriceBoxDAO">
+
+		<constructor-arg ref="sqlSession" />
+	</bean>
+
+
+</beans>

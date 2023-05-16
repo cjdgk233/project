@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="pricebox">
+
+	<insert id="insertPriceBox" parameterType="pricebox">
+	insert into PRICEBOX ( PRICEBOX_SEQ , PRICEBOX_PRODUCT , PRICEBOX_SEATRATE1 , SEATRATE_PRICE1,
+		 PRICEBOX_SEATRATE2 , SEATRATE_PRICE2, PRICEBOX_SEATRATE3 ,SEATRATE_PRICE3) 
+values(PRICEBOX_SEQ.nextval,#{priceBoxProduct},#{priceBoxSeatRate1},#{seatRatePrice1},
+#{priceBoxSeatRate2},#{seatRatePrice2},#{priceBoxSeatRate3},#{seatRatePrice3})
+
+	</insert>
+	
+	<select id="findPriceBox" parameterType="int" resultType="pricebox">
+	
+	     SELECT * FROM PRICEBOX where pricebox_product = #{priceBoxProduct}
+	</select>
+
+
+</mapper>

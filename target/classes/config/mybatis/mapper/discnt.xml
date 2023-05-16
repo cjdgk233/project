@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="discnt">
+
+	<select id="findDiscnt" parameterType="hashmap"
+		resultType="discnt">
+
+		select d.* from DISCNTBOX dc , DISCNT d where DISCNTBOX_PRODUCT
+		=#{productSeq} and DISCNT_SEQ=#{discnt}
+
+	</select>
+
+	<insert id="insertDiscnt" parameterType="discnt">
+
+		Insert into DISCNT (DISCNT_SEQ,DISCNT_NAME,DISCNT_DETAIL)
+		values (DISCNT_SEQ.NEXTVAL,#{discntName},#{discntDetail})
+	</insert>
+
+	<select id="allDiscnt" resultType="discnt">
+
+		select * from discnt
+	</select>
+
+	
+	
+	<select id="getNextDiscntSeq" resultType="int">
+	
+	select DISCNT_SEQ.nextval from DUAL
+	</select>
+
+
+
+</mapper>

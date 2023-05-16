@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="product">
+
+	<select id="allProduct" resultType="product">
+		select p.*,h.HALL_NAME,
+		d.PDTYPE_NAME from PRODUCT p,Hall h, PdType d
+		where p.PRODUCT_HALL =
+		h.HALL_SEQ and p.PRODUCT_PDTYPE = d.PDTYPE_SEQ
+
+	</select>
+
+	<insert id="registProduct" parameterType="product">
+		Insert into PRODUCT
+		(PRODUCT_SEQ,PRODUCT_NAME,PRODUCT_IMAGE,PRODUCT_RUNTIME,PRODUCT_PERIODBEGIN,PRODUCT_PERIODEND,PRODUCT_RATE,PRODUCT_POINTAVG,PRODUCT_CXLDEADLINE,PRODUCT_CXLFEE,PRODUCT_HALL,PRODUCT_PDTYPE,PRODUCT_AREA,PRODUCT_ROUND)
+		values
+		(PRODUCT_SEQ.nextval,#{productName},#{productImage},#{productRuntime},#{productPeriodBegin},#{productPeriodEnd},#{productRate},null,7,30,#{productHall},#{productPdType},#{productArea},null)
+
+	</insert>
+
+	<select id="findProduct" resultType="product"
+		parameterType="int">
+
+		select p.*, h.HALL_NAME from product p, Hall h where
+		p.PRODUCT_HALL =
+		h.HALL_SEQ and PRODUCT_SEQ=#{productSeq}
+
+	</select>
+
+
+	<select id="getNextProductSeq" resultType="int">
+
+		select
+		PRODUCT_SEQ.nextval from DUAL
+
+	</select>
+
+	<select id="selectHallSeq" parameterType="int" resultType="int">
+
+		SELECT PRODUCT_HALL FROM PRODUCT where PRODUCT_SEQ=#{productSeq}
+
+	</select>
+
+	<select id="findProductRecode" parameterType="int"
+		resultType="product">
+
+		SELECT * FROM PRODUCT where PRODUCT_SEQ=#{productSeq}
+
+	</select>
+
+
+	<select id="fineProductHall" parameterType="int"
+		resultType="product">
+
+		select * from product where PRODUCT_HALL=#{HallSeq}
+	</select>
+
+
+
+
+	<select id="getTotal" resultType="int" parameterType="map">
+		select count(*) from product p
+
+		<if test="type != null">
+			<if test="type == 'PRODUCT_SEQ'">
+				where PRODUCT_SEQ = #{word}
+			</if>
+			<if test="type != 'PRODUCT_SEQ'">
+				where ${type} like '%${word}%'		<!-- #{} - 데이터로 취급 ${} - 글자 자체로 처리... where을 
+					안으로 넣으니까 됨;; #{} - 데이터 취급 ${} 글자 제체로 처리...where을 안에 넣으니까 된다. -->
+			</if>
+		</if>
+
+	</select>
+
+	<select id="selectList" parameterType="map" resultType="product">
+
+		select * from (
+		select rownum rn, t.* from
+		( select * from PRODUCT
+		p,Hall h, PDTYPE d where p.PRODUCT_HALL =
+		h.HALL_SEQ and
+		p.PRODUCT_PDTYPE = d.PDTYPE_SEQ
+		<if test="type != null">
+			<choose>
+				<when test="type == 'PRODUCT_SEQ'">
+					and PRODUCT_SEQ =#{word}
+				</when>
+				<when test="type == 'PRODUCT_PDTYPE'">
+					and PDTYPE_NAME like '%${word}%' <!-- product_pdtype은 숫자로 되어 있는데 문자인 
+						클래식, 연극 등을 넣으니 데이터가 나오지 않았다...ㅜ -->
+				</when>
+				<otherwise>
+					and ${type} like '%${word}%'
+				</otherwise>
+			</choose>
+			<!-- #{} - 데이터로 취급 ${} - 글자 자체로 처리... rownum은 from절에서 써주는 건가 -->
+		</if>)
+            <![CDATA[
+			t) where rn >=#{first} and rn <= #{last}
+			
+		]]>
+
+		<!-- //쿼리를 작성할 때, <,>,& , || 를 사용해야 하는 경우가 생기는데 xml에서 그냥 사용할 경우 태그로 인식하는 
+			경우가 있다. //이럴경우 에러가 생기기 때문에 태그가 아니라 실제 쿼리에 필요한 코드라고 알려줘야 한다. 그때 사용하는 것이 <![CDATA[...]]> 
+			이다. //한마디로 <>,&,|| 등을 닫는 부등호가 아니라 문자열로 처리하라는 뜻이다. -->
+
+	</select>
+
+
+ 	<update id="updateProduct" parameterType="product"> -->
+
+		update product set PRODUCT_NAME =#{productName}, PRODUCT_PERIODBEGIN =#{productPeriodBegin}, PRODUCT_PERIODEND=#{productPeriodEnd},PRODUCT_RATE =#{productRate} where PRODUCT_SEQ=#{productSeq} -->
+	</update> 
+
+
+<delete id="deleteProdut" parameterType="int">
+
+
+     delete from product where where PRODUCT_SEQ=#{productSeq}
+
+
+</delete>
+
+
+
+
+
+
+</mapper>

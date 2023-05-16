@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+
+	<select id="checkLogin"  resultType ="int" parameterType="member">
+	
+	 select member_seq from member where member_id =#{memberId} and member_password =#{memberPassword}
+	 
+	 </select>
+	 
+	 
+	<select id="findId"  resultType ="String" parameterType="member">
+	
+	 select MEMBER_ID from member where MEMBER_NAME =#{memberName} and MEMBER_TEL =#{memberTel}
+	 
+	 </select>
+	 
+	 
+	 <select id="findPw"  resultType ="String" parameterType="member">
+	
+	 select MEMBER_PASSWORD from member where MEMBER_NAME =#{memberName} and MEMBER_TEL =#{memberTel} and MEMBER_ID = #{memberId}
+	 
+	 </select>
+	 
+	 
+	  <select id="findMember"  resultType ="member" parameterType="int">
+	
+	 select * from member where MEMBER_SEQ =#{memberSeq} 
+	 
+	 </select>
+	 
+	 <update id="updatePw" parameterType="hashmap">
+	 
+	 update member set MEMBER_PASSWORD =#{memberPassword} where MEMBER_SEQ =#{memberSeq}
+	
+	 </update>
+	 
+	 <update id="deleteMember" parameterType="int">
+	 
+	 update member set MEMBER_WITHDRAWAL ='y' where MEMBER_SEQ = #{memberSeq}
+	 
+	 </update>
+	 
+	 
+	<update id="updateMember" parameterType="member">
+		update MEMBER
+		set MEMBER_TEL = #{memberTel}, MEMBER_ADDRESS = #{memberAddress} where MEMBER_SEQ = #{memberSeq}
+	</update>
+	 
+	 <insert id="joinMember" parameterType="member">
+	 
+	 insert into member (MEMBER_SEQ,MEMBER_ID,MEMBER_TEL,MEMBER_NAME,MEMBER_PASSWORD,MEMBER_ADDRESS,MEMBER_WITHDRAWAL,MEMBER_MEMBERSHIP,MEMBER_PROFILEIMAGE)
+	  values (#{memberSeq},#{memberId},#{memberTel},#{memberName},#{memberPassword},#{memberAddress},'n',1,null)
+	 
+	 </insert>
+	 
+	<select id="getNextMemberSeq" resultType="int">
+		select MEMBER_SEQ.nextval from DUAL
+	</select>
+	
+
+	<select id="checkAdmin" resultType="int" parameterType="int">
+	
+		select MEMBER_MEMBERSHIP from member where MEMBER_SEQ=#{memberSeq}
+	
+	</select>
+	
+	
+	
+	<select id="allMember" resultType="member">
+	
+		 select t.* from ( select rownum, member.* from member) t order by MEMBER_SEQ asc
+	
+	</select>
+	 
+	 
+	 
+	 
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

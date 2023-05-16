@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="hall">
+
+
+	<select id="allHall" resultType="hall">
+		select * from hall order by
+		HALL_SEQ ASC
+	</select>
+
+	<select id="getHallSeq" resultType="int">
+		select HALL_SEQ.nextval from
+		DUAL
+	</select>
+
+	<insert id="insertHall" parameterType="hall">
+
+		Insert into HALL
+		(HALL_SEQ,HALL_NAME,HALL_TEL,HALL_THEATER,HALL_SEATRATE1,HALL_SEATRATE2,HALL_SEATRATE3)
+		values
+		(#{hallSeq},#{hallName},#{hallTel},#{hallTheater},#{hallSeatRate1},#{hallSeatRate2},#{hallSeatRate3})
+	</insert>
+
+
+	<select id="findHall" parameterType="int" resultType="hall">
+
+		select * from hall where HALL_THEATER=#{hallTheater}
+
+	</select>
+	
+	<select id="findOneHall" parameterType="int" resultType="hall">
+
+		select * from hall where HALL_SEQ=#{hallTheater}
+
+	</select>
+
+
+	<select id="findHallWithHallSeq" parameterType="int" resultType="hall">
+
+		select * from hall where HALL_SEQ=#{productHall}
+
+	</select>
+	
+	
+	
+</mapper>

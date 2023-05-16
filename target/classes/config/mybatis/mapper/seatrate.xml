@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="seatrate">
+
+
+	<select id="allSeatrate" resultType="seatrate">
+		SELECT * FROM SEATRATE order
+		by SEATRATE_SEQ ASC
+	</select>
+
+	<select id="findSeatrate" resultType="seatrate"
+		parameterType="int">
+		SELECT * FROM SEATRATE where
+		SEATRATE_HALL=#{seatRatehall} order by SEATRATE_SEQ ASC
+	</select>
+
+
+	<select id="findSeatRate" resultType="seatrate"
+		parameterType="int">
+		select * from SEATRATE where SEATRATE_SEQ=#{seatRateSeq}
+
+	</select>
+
+	<select id="findSeatRateName" resultType="String"
+		parameterType="int">
+
+		select SEATRATE_NAME from seatRate where
+		SEATRATE_SEQ=#{seatRateSeq}
+
+	</select>
+
+	<select id="findSeatRateNum" resultType="int"
+		parameterType="int">
+
+		select SEATRATE_NUM from seatRate where
+		SEATRATE_SEQ=#{seatRateSeq}
+
+	</select>
+
+
+</mapper>

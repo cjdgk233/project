@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="book">
+
+
+	<select id="selectBook" resultType="book" parameterType="int">
+
+		SELECT *
+		FROM BOOK where BOOK_MEMBER=#{memberSeq} order by BOOK_PRODUCTDATE
+		ASC
+	</select>
+
+
+
+
+	<insert id="insertBook" parameterType="book">
+		insert into
+		book(BOOK_SEQ,BOOK_FEE,BOOK_TOTALPAYMENT,BOOK_PRODUCT,BOOK_SEAT,BOOK_MEMBER,BOOK_PRODUCTDATE,BOOK_ROUND,BOOK_SEATRATE
+		,BOOK_PRODUCTNAME,BOOK_PAYDATE)
+		values(BOOK_SEQ.nextval,#{bookFee},#{bookTotalPayment},#{bookProduct},#{bookSeat},#{bookMember},#{bookProductDate},#{bookRound},
+		#{bookSeatRate},#{bookProductName},#{bookPayDate})
+	</insert>
+
+	<select id="countBook" resultType="int" parameterType="int">
+
+		select
+		count(BOOK_SEAT) from book where BOOK_ROUND =#{bookRound} AND
+		BOOK_SEATRATE=#{bookSeatRate}
+	</select>
+
+
+
+	<select id="selectBookProduct" resultType="book"
+		parameterType="int">
+
+		SELECT * FROM BOOK where BOOK_ROUND = #{roundSeq}
+	</select>
+
+
+	<select id="allBook" resultType="book">
+
+		select t.* from(select rownum, book.* from book where not(BOOK_STATUS='N'))
+		t order by BOOK_SEQ asc
+
+	</select>
+	
+	<update id="updateDeleteBook" parameterType="int">
+	
+	 update book set BOOK_STATUS = 'N' where BOOK_SEQ = #{bookSeq}
+	
+	</update>
+
+
+
+</mapper>

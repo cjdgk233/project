@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Service 생성자 인젝션 방식 객체 생성 -->
+
+
+	<bean id="memberService" class="com.ex.member.MemberService">
+		<constructor-arg ref="memberDao" />
+	</bean>
+
+	<bean id="productService" class="com.ex.product.ProductService">
+
+		<constructor-arg ref="productDao" />
+	</bean>
+
+	<bean id="pdTypeService" class="com.ex.pdType.PdTypeService">
+
+		<constructor-arg ref="pdtypeDao" />
+	</bean>
+
+	<bean id="seatRateService" class="com.ex.seatrate.SeatRateService">
+		<constructor-arg ref="seatRateDao" />
+	</bean>
+
+	<bean id="roundService" class="com.ex.round.RoundService">
+		<constructor-arg ref="roundDao" />
+	</bean>
+
+	<bean id="seatService" class="com.ex.seat.SeatService">
+		<constructor-arg ref="seatDao" />
+	</bean>
+
+	<bean id="bookService" class="com.ex.book.BookService">
+		<constructor-arg ref="bookDao" />
+	</bean>
+
+
+
+	<bean id="hallService" class="com.ex.hall.HallService">
+		<constructor-arg ref="hallDAO" />
+	</bean>
+
+	<bean id="discntBoxService" class="com.ex.discntbox.DiscntBoxService">
+
+		<constructor-arg ref="discntBoxDao" />
+	</bean>
+
+
+	<bean id="discntService" class="com.ex.discnt.DiscntService">
+
+		<constructor-arg ref="discntDao" />
+	</bean>
+	
+		
+	<bean id="theaterService" class="com.ex.theater.TheaterService">
+
+		<constructor-arg ref="theaterDao" />
+	</bean>
+	
+	<bean id="priceBoxService" class="com.ex.pricebox.PriceBoxService">
+
+		<constructor-arg ref="priceBoxDao" />
+	</bean>
+	
+
+
+</beans>

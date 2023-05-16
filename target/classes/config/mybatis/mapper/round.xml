@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="round">
+
+
+
+	<insert id="insertRound" parameterType="round">
+
+		Insert into ROUND
+		(ROUND_SEQ,ROUND_DATE,ROUND_TIME,ROUND_PRODUCT,ROUND_HALL,ROUNDDEADLINE)
+		values
+		(ROUND_SEQ.NEXTVAL,#{roundDate},#{roundTime},#{roundProduct},#{roundHall},#{roundDeadLine})
+
+	</insert>
+
+	<select id="selectRound" parameterType="hashmap"
+		resultType="round">
+
+		select * from ROUND where ROUND_PRODUCT=#{roundProduct} and
+		ROUND_HALL=#{roundHall} and ROUND_DATE=#{roundDate}
+
+	</select>
+
+	<select id="findRound" parameterType="int" resultType="round">
+
+		select *
+		from round where ROUND_SEQ=#{roundSeq}
+	</select>
+
+
+	<select id="selectRoundOne" parameterType="hashmap"
+		resultType="round">
+
+		select * from ROUND where ROUND_PRODUCT=#{roundProduct} and ROUND_DATE=#{roundDate}
+
+	</select>
+
+
+</mapper>

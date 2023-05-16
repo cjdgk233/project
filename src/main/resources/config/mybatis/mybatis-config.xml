@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "HTTP://mybatis.org/dtd/mybatis-3-config.dtd">
+
+
+<configuration>
+	<settings>
+		<setting name="cacheEnabled" value="false" />
+		<setting name="useGeneratedKeys" value="true" />
+		<setting name="defaultExecutorType" value="REUSE" />
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+	</settings>
+
+	<typeAliases>
+
+		<typeAlias type="com.ex.member.MemberVO" alias="member" />
+		<typeAlias type="com.ex.product.ProductVO" alias="product" />
+		<typeAlias type="com.ex.hall.HallVO" alias="hall" />
+		<typeAlias type="com.ex.pdType.PdTypeVO" alias="pdtype" />
+		<typeAlias type="com.ex.seatrate.SeatRateVO"
+			alias="seatrate" />
+		<typeAlias type="com.ex.round.RoundVO" alias="round" />
+		<typeAlias type="com.ex.seat.SeatVO" alias="seat" />
+		<typeAlias type="com.ex.discntbox.DiscntBoxVO"
+			alias="discntbox" />
+
+		<typeAlias type="com.ex.discnt.DiscntVO" alias="discnt" />
+		<typeAlias type="com.ex.book.BookVO" alias="book" />
+		<typeAlias type="com.ex.theater.TheaterVO" alias="theater" />
+		<typeAlias type="com.ex.pricebox.PriceBoxVO"
+			alias="pricebox" />
+
+
+	</typeAliases>
+
+	<mappers>
+
+		<mapper resource="config/mybatis/mapper/member.xml" />
+		<mapper resource="config/mybatis/mapper/product.xml" />
+		<mapper resource="config/mybatis/mapper/pdtype.xml" />
+		<mapper resource="config/mybatis/mapper/hall.xml" />
+		<mapper resource="config/mybatis/mapper/seatrate.xml" />
+		<mapper resource="config/mybatis/mapper/round.xml" />
+		<mapper resource="config/mybatis/mapper/seat.xml" />
+		<mapper resource="config/mybatis/mapper/discntbox.xml" />
+		<mapper resource="config/mybatis/mapper/discnt.xml" />
+		<mapper resource="config/mybatis/mapper/book.xml" />
+		<mapper resource="config/mybatis/mapper/theater.xml" />
+		<mapper resource="config/mybatis/mapper/pricebox.xml" />
+		
+	</mappers>
+</configuration>

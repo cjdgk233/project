@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="theater">
+
+	<insert id="inputTheater" parameterType="theater">
+
+		Insert into
+		THEATER(THEATER_SEQ,THEATER_NAME,THEATER_TEL,THEATER_ADDRESS,THEATER_LATITUDE,THEATER_LONGITUDE,
+		THEATER_HALL1,THEATER_HALL2,THEATER_HALL3)
+		values
+		(#{theaterSeq},#{theaterName},#{theaterTel},#{theaterAddress},#{theaterLatitude},#{theaterLongitude},
+		#{theaterhall1},#{theaterhall2},#{theaterhall3})
+
+
+	</insert>
+
+
+	<select id="getTheaterSeq" resultType="int">
+
+		select THEATER_SEQ.nextval from DUAL
+
+	</select>
+
+	<select id="allTheater" resultType="theater">
+
+		select * from theater
+	</select>
+
+	<select id="findTheater" resultType="theater" parameterType="int">
+
+		select * from theater where THEATER_SEQ = #{productHall}
+	</select>
+
+
+
+</mapper>

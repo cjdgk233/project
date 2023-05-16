@@ -1,0 +1,213 @@
+/**
+* Template Name: NiceAdmin - v2.4.1
+* Template URL: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/
+* Author: BootstrapMade.com
+* License: https://bootstrapmade.com/license/
+*/
+
+    
+    
+tr.rowColor:hover {background: lightyellow;!important }   
+
+.check input[type="checkbox"] {
+    -webkit-appearance: none;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    outline: none !important;
+    border: 1px solid #9999;
+    vertical-align: middle;
+    background-color: #e0e0e0;
+}
+
+.check input[type="checkbox"]:disabled {
+    background-color:#004080;
+}
+
+
+.check input[type="checkbox"]:checked {
+    background-color:red;
+
+}
+
+.col-xl-6-2 {
+    flex: 0 0 auto;
+    width: 40%;
+    height: 30%;
+    object-fit: cover;
+
+    
+}
+
+
+
+.row2 {
+ 
+    width: 40%;
+    height: 30%;
+
+
+    
+}
+
+.divStyle{
+	
+	margin:10px;
+}
+
+#color1{
+	
+	background: #f6f6fe;
+}
+ 
+ 
+Card
+.card {
+  margin-bottom: 30px;
+  border: none;
+  border-radius: 5px;
+  box-shadow: 0px 0 30px rgba(1, 41, 112, 0.1);
+
+}
+
+.card-header,
+.card-footer {
+  border-color: #ebeef4;
+  background-color: #fff;
+  color: #798eb3;
+  padding: 15px;
+}
+
+.card-title2 {
+  padding: 20px 0 15px 0;
+  font-size: 18px;
+  font-weight: 500;
+  background-color: #8080ff;
+  font-family: "Poppins", sans-serif;
+  
+}
+
+.green{
+	
+	background-color: green;
+}
+
+.card-title3 {
+  margin-top:10px;
+  padding: 20px 0 15px 0;
+  font-size: 14px;
+  font-weight: 500;
+  color: #black;
+  background-color:#fff;
+  font-family: "Poppins", sans-serif;
+  border-radius:10px; 
+
+}
+
+
+
+.card-title {
+  margin-top:10px;
+  padding: 20px 0 15px 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #black;
+  background-color:#fff;
+  font-family: "Poppins", sans-serif;
+  border-radius:10px; 
+
+}
+
+.product_time {
+    padding: 11px 18px 11px 15px;
+    width: 100%;
+    border: 1px solid #242428;
+    border-radius: 6px;
+    text-align: left;
+    margin:5px;
+    background-color: #fff;
+}
+
+
+
+.card-title span {
+  color: #899bbd;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.card-body {
+  padding: 0 20px 20px 20px;
+ 
+}
+
+.card-body2 {
+  padding: 10px;
+   border: none; important!
+  
+ 
+}
+
+.card-img-overlay {
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+/*--------------------------------------------------------------
+# Profile Page
+--------------------------------------------------------------*/
+
+.profile {
+	margin: 100px 100px 0;
+}	
+
+.w-80 {
+    width: 80%!important;
+}
+
+
+.profile .profile-card h2 {
+	font-size: 24px;
+	font-weight: 700;
+	color: #2c384e;
+	margin: 10px 0 0 0;
+}
+
+.profile .profile-card h3 {
+	font-size: 18px;
+}
+
+.profile .profile-card .social-links a {
+	font-size: 20px;
+	display: inline-block;
+	color: rgba(1, 41, 112, 0.5);
+	line-height: 0;
+	margin-right: 10px;
+	transition: 0.3s;
+}
+
+.profile .profile-card .social-links a:hover {
+ 	color: #012970;
+}
+
+.profile .profile-overview .row {
+	margin-bottom: 20px;
+	font-size: 15px;
+}
+
+.profile .profile-overview .card-title {
+	color: #012970;
+}
+
+.profile .profile-overview .label {
+	font-weight: 600;
+	color: rgba(1, 41, 112, 0.6);
+}
+
+.profile .profile-edit label {
+	font-weight: 600;
+	color: rgba(1, 41, 112, 0.6);
+}
+
